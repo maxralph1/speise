@@ -16,3 +16,8 @@ body {
 .details:hover {
     background-color: #E35F21;
 }
+
+.form-control:focus {
+    border-color: #E35F21;
+    box-shadow: 0 0 0 0.2rem #e35e215e;
+}
