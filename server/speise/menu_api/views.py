@@ -1,5 +1,6 @@
 from django.http import Http404
 from rest_framework import permissions, status
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from accounts_api.permissions import IsSuperuser
@@ -12,13 +13,25 @@ CATEGORY SECTION
 '''
 
 class CategoryList(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsSuperuser]
+    permission_classes = [IsSuperuser]
+
+    
 
     # List all categories, or create a new category.
     def get(self, request, format=None):
         categories = Category.objects.all()
+        count = len(categories)
         serializer = CategoryExplicitSerializer(categories, many=True)
         return Response(serializer.data)
+        # return Response((serializer.data, {'count': count}))
+    
+        # # Pagination Sample
+        # paginator = PageNumberPagination()
+        # paginator.page_size = 3
+        # result_page = paginator.paginate_queryset(categories, request)
+        # serializer = CategoryExplicitSerializer(result_page, many=True)
+
+        # return paginator.get_paginated_response(serializer.data)
     
 
     def post(self, request, format=None):

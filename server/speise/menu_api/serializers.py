@@ -51,7 +51,7 @@ class CategoryExplicitSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        fields = ['id', 'title', 'description', 'meals', 'is_active', 'created_at', 'updated_at', 'deleted_at', 'user']
+        fields = ['id', 'slug', 'title', 'description', 'meals', 'is_active', 'created_at', 'updated_at', 'deleted_at', 'user']
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -65,7 +65,7 @@ class MealExplicitSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Meal
-        fields = ['id', 'name', 'description', 'price', 'image_url', 'category', 'meal_inventory', 'is_active', 'created_at', 'updated_at', 'deleted_at', 'user']
+        fields = ['id', 'slug', 'name', 'description', 'price', 'image_url', 'category', 'meal_inventory', 'is_active', 'created_at', 'updated_at', 'deleted_at', 'user']
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -77,7 +77,7 @@ class MealExplicitSerializer(serializers.ModelSerializer):
 class MealInventoryExplicitSerializer(serializers.ModelSerializer):
     class Meta:
         model = MealInventory
-        fields = ['id', 'units_prepared', 'units_left', 'is_active', 'created_at', 'updated_at', 'deleted_at', 'meal', 'user']
+        fields = ['id', 'slug', 'units_prepared', 'units_left', 'is_active', 'created_at', 'updated_at', 'deleted_at', 'meal', 'user']
 
     def to_representation(self, instance):
         data = super().to_representation(instance)

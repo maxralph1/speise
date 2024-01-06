@@ -8,6 +8,13 @@ from accounts.models import User
 
 
 class Category(models.Model):
+    user = models.ForeignKey(
+        User, 
+        related_name='categories', 
+        verbose_name=_('Category Creator'), 
+        help_text=_('Select a User'), 
+        on_delete=models.CASCADE
+    )
     title = models.CharField(
         verbose_name=_('Category Title'),
         help_text=_('Required and unique'),
@@ -35,7 +42,9 @@ class Category(models.Model):
     )
     updated_at = models.DateTimeField(
         verbose_name=_('Updated at'), 
-        auto_now=True
+        auto_now=True, 
+        null=True, 
+        blank=True
     )
     deleted_at = models.DateTimeField(
         verbose_name=_('Deleted At'), 

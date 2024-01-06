@@ -8,9 +8,9 @@ app_name = 'orders_api'
 
 urlpatterns = [
     # Orders
-    path('orders/', views.OrderList.as_view()),
-    path('orders/<str:order_no>/', views.OrderDetail.as_view()),
-    path('orders/<str:order_no>/soft-delete-or-reactivate/', views.OrderSoftDeleteOrReactivate.as_view()),
+    path('', views.OrderList.as_view()),
+    path('<str:order_no>/', views.OrderDetail.as_view()),
+    path('<str:order_no>/soft-delete-or-reactivate/', views.OrderSoftDeleteOrReactivate.as_view()),
 
     # Order Items
     path('order-items/', views.OrderItemList.as_view()),

@@ -119,7 +119,7 @@ class User(AbstractUser):
 class Address(models.Model):
     user = models.ForeignKey(
         User, 
-        related_name='user', 
+        related_name='addresses', 
         on_delete=models.CASCADE, 
         verbose_name=_('Select a User'))
     house_number = models.CharField(

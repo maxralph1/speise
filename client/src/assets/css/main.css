@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,500;0,600;1,200&display=swap');
+
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.nav-link {
+    color: black;
+}
+
+.nav-link:hover,
+.see-more,
+h1 {
+    color: #E35F21;
+}
+
+.details:hover {
+    background-color: #E35F21;
+}
+
+.form-control:focus {
+    border-color: #E35F21;
+    box-shadow: 0 0 0 0.2rem #e35e215e;
+}

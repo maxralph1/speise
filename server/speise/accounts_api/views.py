@@ -15,8 +15,10 @@ class UserList(APIView):
     # List all users, or create a new user.
     def get(self, request, format=None):
         users = User.objects.all()
+        customers_count = User.objects.filter(role='CST').count()
         serializer = UserExplicitSerializer(users, many=True)
         return Response(serializer.data)
+        return Response([serializer.data, {'customers_count': customers_count}])
 
     def post(self, request, format=None):
         serializer = UserSerializer(data=request.data)

@@ -15,7 +15,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['email'] = user.email
         token['role'] = user.role
         token['bio'] = user.bio
-        token['image'] = str(user.image)
+        token['image_url'] = str(user.image_url)
         token['is_staff'] = user.is_staff
         token['is_superuser'] = user.is_superuser
         token['is_active'] = user.is_active
